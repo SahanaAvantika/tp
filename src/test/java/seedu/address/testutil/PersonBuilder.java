@@ -1,67 +1,76 @@
 package seedu.address.testutil;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import seedu.address.model.person.Address;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
-import seedu.address.model.tag.Tag;
-import seedu.address.model.util.SampleDataUtil;
+import seedu.address.model.student.Address;
+import seedu.address.model.student.Email;
+import seedu.address.model.student.Name;
+import seedu.address.model.student.Student;
+import seedu.address.model.student.Phone;
+import seedu.address.model.student.StudentId;
 
 /**
  * A utility class to help with building Person objects.
  */
 public class PersonBuilder {
 
-    public static final String DEFAULT_NAME = "Amy Bee";
+    public static final String DEFAULT_STUDENT_NAME = "Amy Bee";
+    public static final String DEFAULT_STUDENT_ID = "A42S";
+    public static final String DEFAULT_PARENT_NAME = "Charlie Den";
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
 
-    private Name name;
+    private Name studentName;
+    private StudentId studentId;
+    private Name parentName;
     private Phone phone;
     private Email email;
     private Address address;
-    private Set<Tag> tags;
 
     /**
      * Creates a {@code PersonBuilder} with the default details.
      */
     public PersonBuilder() {
-        name = new Name(DEFAULT_NAME);
+        studentName = new Name(DEFAULT_STUDENT_NAME);
+        studentId = new StudentId(DEFAULT_STUDENT_ID);
+        parentName = new Name(DEFAULT_PARENT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
-        tags = new HashSet<>();
     }
 
     /**
      * Initializes the PersonBuilder with the data of {@code personToCopy}.
      */
-    public PersonBuilder(Person personToCopy) {
-        name = personToCopy.getName();
+    public PersonBuilder(Student personToCopy) {
+        studentName = personToCopy.getStudentName();
+        studentId = personToCopy.getStudentId();
+        parentName = personToCopy.getParentName();
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
-        tags = new HashSet<>(personToCopy.getTags());
     }
 
     /**
      * Sets the {@code Name} of the {@code Person} that we are building.
      */
-    public PersonBuilder withName(String name) {
-        this.name = new Name(name);
+    public PersonBuilder withStudentName(String studentName) {
+        this.studentName = new Name(studentName);
         return this;
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Person} that we are building.
+     * Sets the {@code Name} of the {@code Person} that we are building.
      */
-    public PersonBuilder withTags(String ... tags) {
-        this.tags = SampleDataUtil.getTagSet(tags);
+    public PersonBuilder withStudentId(String studentId) {
+        this.studentId = new StudentId(studentId);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Name} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withParentName(String parentName) {
+        this.parentName = new Name(parentName);
         return this;
     }
 
@@ -89,8 +98,8 @@ public class PersonBuilder {
         return this;
     }
 
-    public Person build() {
-        return new Person(name, phone, email, address, tags);
+    public Student build() {
+        return new Student(studentName, studentId, parentName, phone, email, address);
     }
 
 }
