@@ -1,11 +1,5 @@
 package seedu.address.storage;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -13,8 +7,8 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
-import seedu.address.model.student.Student;
 import seedu.address.model.student.Phone;
+import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentId;
 
 /**
@@ -35,8 +29,9 @@ class JsonAdaptedPerson {
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("studentName") String studentName, @JsonProperty("studentId") String studentId,
-                             @JsonProperty("parentName") String parentName, @JsonProperty("phone") String phone,
+    public JsonAdaptedPerson(@JsonProperty("studentName") String studentName,
+                             @JsonProperty("studentId") String studentId, @JsonProperty("parentName") String parentName,
+                             @JsonProperty("phone") String phone,
                              @JsonProperty("email") String email, @JsonProperty("address") String address) {
         this.studentName = studentName;
         this.studentId = studentId;
@@ -73,7 +68,8 @@ class JsonAdaptedPerson {
         final Name modelStudentName = new Name(studentName);
 
         if (studentId == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, StudentId.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    StudentId.class.getSimpleName()));
         }
         if (!StudentId.isValidId(studentId)) {
             throw new IllegalValueException(StudentId.MESSAGE_CONSTRAINTS);

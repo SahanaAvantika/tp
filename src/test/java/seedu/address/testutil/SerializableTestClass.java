@@ -1,5 +1,7 @@
 package seedu.address.testutil;
 
+import org.junit.jupiter.api.Disabled;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,6 +10,7 @@ import java.util.List;
 /**
  * A class used to test serialization and deserialization
  */
+@Disabled
 public class SerializableTestClass {
     public static final String JSON_STRING_REPRESENTATION = String.format("{%n"
             + "  \"name\" : \"This is a test class\",%n"

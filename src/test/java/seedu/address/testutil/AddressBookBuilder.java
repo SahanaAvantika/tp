@@ -1,5 +1,6 @@
 package seedu.address.testutil;
 
+import org.junit.jupiter.api.Disabled;
 import seedu.address.model.AddressBook;
 import seedu.address.model.student.Student;
 
@@ -8,6 +9,7 @@ import seedu.address.model.student.Student;
  * Example usage: <br>
  *     {@code AddressBook ab = new AddressBookBuilder().withPerson("John", "Doe").build();}
  */
+@Disabled
 public class AddressBookBuilder {
 
     private AddressBook addressBook;

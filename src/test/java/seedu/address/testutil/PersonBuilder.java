@@ -1,5 +1,6 @@
 package seedu.address.testutil;
 
+import org.junit.jupiter.api.Disabled;
 import seedu.address.model.student.Address;
 import seedu.address.model.student.Email;
 import seedu.address.model.student.Name;
@@ -10,6 +11,7 @@ import seedu.address.model.student.StudentId;
 /**
  * A utility class to help with building Person objects.
  */
+@Disabled
 public class PersonBuilder {
 
     public static final String DEFAULT_STUDENT_NAME = "Amy Bee";

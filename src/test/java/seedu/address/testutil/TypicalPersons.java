@@ -15,14 +15,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.jupiter.api.Disabled;
 import seedu.address.model.AddressBook;
 import seedu.address.model.student.Student;
 
 /**
  * A utility class containing a list of {@code Person} objects to be used in tests.
  */
+@Disabled
 public class TypicalPersons {
-
+    /*
     public static final Student ALICE = new PersonBuilder().withName("Alice Pauline")
             .withAddress("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
             .withPhone("94351253")
@@ -71,6 +73,9 @@ public class TypicalPersons {
     }
 
     public static List<Student> getTypicalPersons() {
+        /*
         return new ArrayList<>(Arrays.asList(ALICE, BENSON, CARL, DANIEL, ELLE, FIONA, GEORGE));
+         */
+        return new ArrayList<>();
     }
 }

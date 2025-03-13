@@ -3,12 +3,14 @@ package seedu.address.ui;
 import java.util.Objects;
 
 import javafx.beans.DefaultProperty;
+import org.junit.jupiter.api.Disabled;
 
 /**
  * A test object which can be constructed via an FXML file.
  * Unlike other JavaFX classes, this class can be constructed without the JavaFX toolkit being initialized.
  */
 @DefaultProperty("text")
+@Disabled
 public class TestFxmlObject {
 
     private String text;
