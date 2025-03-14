@@ -1,15 +1,13 @@
 package seedu.address.testutil;
 
-import org.junit.jupiter.api.Disabled;
 import seedu.address.model.AddressBook;
-import seedu.address.model.student.Student;
+import seedu.address.model.person.Person;
 
 /**
  * A utility class to help with building Addressbook objects.
  * Example usage: <br>
  *     {@code AddressBook ab = new AddressBookBuilder().withPerson("John", "Doe").build();}
  */
-@Disabled
 public class AddressBookBuilder {
 
     private AddressBook addressBook;
@@ -25,7 +23,7 @@ public class AddressBookBuilder {
     /**
      * Adds a new {@code Person} to the {@code AddressBook} that we are building.
      */
-    public AddressBookBuilder withPerson(Student person) {
+    public AddressBookBuilder withPerson(Person person) {
         addressBook.addPerson(person);
         return this;
     }
