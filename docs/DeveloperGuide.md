@@ -292,18 +292,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     Use case ends.
 
 **Extensions**
-* 2a. CareBook detects an invalid  student name, parent name, student ID, phone number, email address, or address.
-    * 2a1. CareBook displays an error message.
+2a. CareBook detects an invalid  student name, parent name, student ID, phone number, email address, or address.
+    2a1. CareBook displays an error message.
 
-      Use case resumes from step 1.
+    Use case resumes from step 1.
 
-* 2b. CareBook detects a duplicate student ID.
-    * 2b1. CareBook displays an error message.
+2b. CareBook detects a duplicate student ID.
+    2b1. CareBook displays an error message.
 
-      Use case resumes from step 1.
+    Use case resumes from step 1.
 
-* 2c. CareBook detects an incorrect command format or unknown command.
-  * 2c1. CareBook displays an error message.
+2c. CareBook detects an incorrect command format or unknown command.
+    2c1. CareBook displays an error message.
 
     Use case resumes from step 1.
 
@@ -318,15 +318,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. CareBook detects an invalid student ID or is unable to find student ID.
-    * 2a1. CareBook displays an error message.
+2a. CareBook detects an invalid student ID or is unable to find student ID.
+    2a1. CareBook displays an error message.
 
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
 * 2b. CareBook detects an incorrect command format or unknown command.
-    * 2b1. CareBook displays an error message.
+    2b1. CareBook displays an error message.
 
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
 #### Use case: UC3 - Delete a Student
 
@@ -341,15 +341,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. CareBook detects an invalid student ID or is unable to find student ID.
-    * 2a1. CareBook displays an error message.
+2a. CareBook detects an invalid student ID or is unable to find student ID.
+    2a1. CareBook displays an error message.
 
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
-* 2b. CareBook detects an incorrect command format or unknown command.
-    * 2b1. CareBook displays an error message.
+2b. CareBook detects an incorrect command format or unknown command.
+    2b1. CareBook displays an error message.
 
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
 #### Use case: UC4 - View All Students
 
@@ -362,11 +362,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. CareBook detects an empty list of students.
+2a. CareBook detects an empty list of students.
+    2a1. CareBook displays an error message.
 
-    * 2a1. CareBook displays an error message.
-
-      Use case ends.
+    Use case ends.
 
 #### Use case: UC5 - Find a Student by Student ID
 
@@ -381,15 +380,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. CareBook detects an invalid student ID or is unable to find student ID.
-    * 2a1. CareBook displays an error message.
+2a. CareBook detects an invalid student ID or is unable to find student ID.
+    2a1. CareBook displays an error message.
 
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
-* 2b. CareBook detects an incorrect command format or unknown command.
-    * 2b1. CareBook displays an error message.
+2b. CareBook detects an incorrect command format or unknown command.
+    2b1. CareBook displays an error message.
 
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
 #### Use case: UC6 - Mark a Student Attendance as Present
 
@@ -404,15 +403,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. CareBook detects an invalid student ID or is unable to find student ID.
-    * 2a1. CareBook displays an error message.
+2a. CareBook detects an invalid student ID, is unable to find student ID, or finds that student is already marked as present.
+    2a1. CareBook displays an error message.
 
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
-* 2b. CareBook detects an incorrect command format or unknown command.
-    * 2b1. CareBook displays an error message.
+2b. CareBook detects an incorrect command format or unknown command.
+    2b1. CareBook displays an error message.
 
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
 #### Use case: UC7 - Mark a Student Attendance as Absent
 
@@ -427,15 +426,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. CareBook detects an invalid student ID or is unable to find student ID.
-    * 2a1. CareBook displays an error message.
+2a. CareBook detects an invalid student ID, is unable to find student ID, or finds that student is already marked as absent.
+    2a1. CareBook displays an error message.
 
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
-* 2b. CareBook detects an incorrect command format or unknown command.
-    * 2b1. CareBook displays an error message.
+2b. CareBook detects an incorrect command format or unknown command.
+    2b1. CareBook displays an error message.
 
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
 #### Use case: UC8 - Clear All Students
 
@@ -467,53 +466,48 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. CareBook detects an empty list of students.
+2a. CareBook detects an empty list of students.
+    2a1. CareBook displays an error message.
 
-    * 2a1. CareBook displays an error message.
-
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
 #### Use case: UC11 - Mark All Students Attendance as Absent
 
 **MSS**
 
 1. User requests to mark all students as absent.
-
 2. CareBook updates the attendance record for every student as absent.
-
 3. CareBook confirms that all students have been marked absent.
 
    Use case ends.
 
 **Extensions**
 
-* 2a. CareBook detects an empty list of students.
+2a. CareBook detects an empty list of students.
+    2a1. CareBook displays an error message.
 
-    * 2a1. CareBook displays an error message.
-
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
 #### Use case: UC12 - Export All Students Information
 
 **MSS**
 
 1. User requests to export all students information with a filename.
-
 2. CareBook saves all students information into the directory where the CareBook application is located.
 
    Use case ends.
 
 **Extensions**
 
-* 2a. CareBook detects an invalid filename.
-    * 2a1. CareBook displays an error message.
+2a. CareBook detects an invalid filename.
+    2a1. CareBook displays an error message.
 
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
-* 2b. CareBook detects an empty list of students.
-    * 2b1. CareBook displays an error message.
+2b. CareBook detects an empty list of students.
+    2b1. CareBook displays an error message.
 
-      Use case resumes at step 1.
+    Use case resumes at step 1.
 
 ### Non-Functional Requirements
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
@@ -662,3 +656,7 @@ we would implement a method to allow users to export to a different file type an
 5. **Modify add command to allow names with special characters**: Currently, users can only add student and parent names that 
 consist of alphanumeric characters and space. For future improvements, we plan to allow users to add names with special characters like
 @, / or names in different languages (e.g. Arabic, Chinese).
+
+6. **Automatically refresh attendance records on a new date**: Currently, users need to trigger a refresh to update the attendance records on a new date.
+When a user is working on this app at late night, past 12am, the date will change, hence they will have to manually refresh the data using commands like `list`.
+For further improvement, we plan to automatically detect a date change while the app is running, and refresh the attendance records without user-triggered actions.
