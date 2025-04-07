@@ -667,6 +667,7 @@ consist of alphanumeric characters and space. For future improvements, we plan t
 6. **Modify add command to validate that email contains a period**: Currently, users can enter emails that do not contain 
 a period in the domain (e.g. a@bc). For future improvements, we plan to enhance email validation by ensuring that the 
 domain part of the email contains at least one period (e.g. example.com) to better reflect real-world email formats.
-6. **Automatically refresh attendance records on a new date**: Currently, users need to trigger a refresh to update the attendance records on a new date.
+
+7. **Automatically refresh attendance records on a new date**: Currently, users need to trigger a refresh to update the attendance records on a new date.
 When a user is working on this app at late night, past 12am, the date will change, hence they will have to manually refresh the data using commands like `list`.
 For further improvement, we plan to automatically detect a date change while the app is running, and refresh the attendance records without user-triggered actions.
