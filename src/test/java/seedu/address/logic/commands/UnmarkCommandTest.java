@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.student.Student;
 import seedu.address.model.student.StudentId;
 
 /**
@@ -44,7 +45,9 @@ public class UnmarkCommandTest {
 
     @Test
     public void execute_studentIdFound_success() {
-        final StudentId testId = model.getFilteredStudentList().get(0).getStudentId();
+        final Student testStudent = model.getFilteredStudentList().get(0);
+        final StudentId testId = testStudent.getStudentId();
+        testStudent.setPresent();
 
         String expectedMessage = String.format(MESSAGE_STUDENT_ATTENDANCE_UNMARKED, testId);
 

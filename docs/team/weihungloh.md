@@ -3,7 +3,7 @@
   title: "John Doe's Project Portfolio Page"
 ---
 
-### Project: AddressBook Level 3
+### Project: CareBook
 
 AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
 
@@ -15,7 +15,17 @@ Given below are my contributions to the project.
   * Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
   * Credits: *{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}*
 
-* **New Feature**: Added a history command that allows the user to navigate to previous commands using up/down keys.
+* **New Feature**: Added the ability to export student records into a .csv file
+  * What it does: This feature allows users to store student name, parent name, parent phone number, parent email, address, student ID into a separate .csv with timestamp captured.
+  * Justification: This feature improves the product significantly because daycare teachers can copy paste a list of parent's email and send a mass announcement to the parents
+
+* **Edited Features**: Added the ability to find students based on student ID
+  * What it does: This feature allows daycare teachers to find student based on student ID. A find window is opened that reveals all information associated to that student. Users are not able to execute another command withotu first closing that find window.
+  * Justification: Our current list feature only shows users a list of students with their names and student ID. The rest of information is not shown to prevent cluttering. Thus, find window helps users to retrieve important information.
+
+* **Edited Features**: Added the ability to delete students based on student ID
+  * What it does: This feature allows daycare teachers to delete a student based on his student ID. Since student ID is unique, that is the only way to delete a student from record.
+  * Justification: Our student id should be unique.
 
 * **Code contributed**: [RepoSense link]()
 
@@ -42,5 +52,3 @@ Given below are my contributions to the project.
 * **Tools**:
   * Integrated a third party library (Natty) to the project ([\#42]())
   * Integrated a new Github plugin (CircleCI) to the team repo
-
-* _{you can add/remove categories in the list above}_

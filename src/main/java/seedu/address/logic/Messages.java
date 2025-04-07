@@ -22,7 +22,7 @@ public class Messages {
             "Student ID should be 4 characters beginning with A followed by 2 digits "
                     + "and ending with an alphabet.";
     public static final String PHONE_MESSAGE_CONSTRAINTS =
-            "Phone numbers should only contain numbers, and should be between 80000000 and 99999999.";
+            "Phone numbers should be exactly 8 digits, and should begin with either 6, 8 or 9.";
     public static final String EMAIL_MESSAGE_CONSTRAINTS = "Emails should be of the format local-part@domain "
             + "and adhere to the following constraints:\n"
             + "1. The local-part should only contain alphanumeric characters and these special characters, excluding "
@@ -51,6 +51,8 @@ public class Messages {
 
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_UNMARKED = "All students marked as absent.";
     public static final String MESSAGE_ALL_STUDENT_ATTENDANCE_MARKED = "All students marked as present.";
+    public static final String MESSAGE_STUDENT_ALREADY_MARKED = "Student %1$s is already marked as present.";
+    public static final String MESSAGE_STUDENT_ALREADY_UNMARKED = "Student %1$s is already marked as absent.";
 
     //used by add
     public static final String MESSAGE_ADD_SUCCESS = "New student added: %1$s";
@@ -75,6 +77,9 @@ public class Messages {
     public static final String FILE_WRITE_ERROR = "Unable to export attendance summary due to I/O error.";
     public static final String EXPORT_FILE_HEADER = "Student ID, Student Name, Parent Name, Parent's Email, "
             + "Parent's Number, Attendance History (Present Dates)\n";
+    public static final String MESSAGE_INVALID_FILE_NAME = "File name should only consist of alphanumeric"
+            + " characters and underscores (_). " + "\nSpecial characters like ?, /, ., * are invalid.";
+    public static final String MESSAGE_FILE_NAME_TOO_LONG = "File name too long. Please choose a shorter name";
 
     // used by help
     public static final String SHOWING_HELP_MESSAGE = "Opened help window.";

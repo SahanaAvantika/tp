@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public class Attendance {
     private boolean isPresentToday;
-
+    private LocalDate lastUpdatedDate;
     private final Set<LocalDate> attendance = new HashSet<>();
 
     /**
@@ -21,7 +21,7 @@ public class Attendance {
     public Attendance(Set<LocalDate> attendance) {
         requireNonNull(attendance);
         this.attendance.addAll(attendance);
-        this.isPresentToday = this.attendance.contains(LocalDate.now());
+        updateIsPresentToday();
     }
 
     /**
@@ -29,7 +29,15 @@ public class Attendance {
      * @return True if present today, False otherwise.
      */
     public boolean getIsPresentToday() {
+        if (!lastUpdatedDate.equals(LocalDate.now())) {
+            updateIsPresentToday();
+        }
         return this.isPresentToday;
+    }
+
+    private void updateIsPresentToday() {
+        isPresentToday = attendance.contains(LocalDate.now());
+        lastUpdatedDate = LocalDate.now();
     }
 
     /**
@@ -37,7 +45,7 @@ public class Attendance {
      */
     public void setPresent() {
         this.attendance.add(LocalDate.now());
-        this.isPresentToday = true;
+        updateIsPresentToday();
     }
 
     /**
@@ -45,7 +53,7 @@ public class Attendance {
      */
     public void setAbsent() {
         this.attendance.remove(LocalDate.now());
-        this.isPresentToday = false;
+        updateIsPresentToday();
     }
 
     /**
@@ -72,8 +80,8 @@ public class Attendance {
             return false;
         }
 
-        Attendance otherEmail = (Attendance) other;
-        return attendance.equals(otherEmail.attendance);
+        Attendance otherAttendance = (Attendance) other;
+        return attendance.equals(otherAttendance.attendance);
     }
 
     @Override

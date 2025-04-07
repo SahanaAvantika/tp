@@ -23,6 +23,7 @@ public class ListCommand extends Command {
             throw new CommandException(MESSAGE_EMPTY_STUDENT_LIST);
         }
 
+        model.updateFilteredStudentList(student -> false);
         model.updateFilteredStudentList(PREDICATE_SHOW_ALL_STUDENTS);
         return new CommandResult(MESSAGE_LIST_SUCCESS);
     }

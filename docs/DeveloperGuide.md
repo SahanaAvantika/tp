@@ -13,7 +13,7 @@
 
 ## **Acknowledgements**
 
-Some of CareBook features are adapted from the AddressBook-Level2 project created by the [SE-EDU initiative](https://se-education.org).
+Some of CareBook features are adapted from the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 As such, CareBook contains some of the code and documentation from AddressBook-Level3. 
 
 The list of third-party libraries used are: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
@@ -38,7 +38,7 @@ Given below is a quick overview of main components and how they interact with ea
 
 **Main components of the architecture**
 
-**`Main`** (consisting of classes [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
+**`Main`** (consisting of classes [`Main`](hhttps://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
 * At app launch, it initializes the other components in the correct sequence, and connects them up with each other.
 * At shut down, it shuts down the other components and invokes cleanup methods where necessary.
 
@@ -70,13 +70,13 @@ The sections below give more details of each component.
 
 ### UI component
 
-The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
+The **API** of this component is specified in [`Ui.java`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/ui/Ui.java)
 
 <puml src="diagrams/UiClassDiagram.puml" alt="Structure of the UI Component"/>
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `StudentListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/resources/view/MainWindow.fxml)
 
 The `UI` component,
 
@@ -87,7 +87,7 @@ The `UI` component,
 
 ### Logic component
 
-**API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+**API** : [`Logic.java`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
 
 Here's a (partial) class diagram of the `Logic` component:
 
@@ -116,10 +116,10 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 
 How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
-* All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+* All `XYZCommandParser` classes (e.g., `AddStudentCommandParser`, `DeleteStudentCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### Model component
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
 <puml src="diagrams/ModelClassDiagram.puml" width="450" />
 
@@ -131,18 +131,9 @@ The `Model` component,
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
-<box type="info" seamless>
-
-**Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
-
-<puml src="diagrams/BetterModelClassDiagram.puml" width="450" />
-
-</box>
-
-
 ### Storage component
 
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/storage/Storage.java)
 
 <puml src="diagrams/StorageClassDiagram.puml" width="550" />
 
@@ -161,103 +152,68 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### \[Proposed\] Undo/redo feature
+### Add a Student
+Logic Classes:
+* <code>AddStudentCommand.java</code>
+* <code>AddStudentCommandParser.java</code>
 
-#### Proposed Implementation
+<code>AddStudentCommandParser</code> parses the input entered by user before executing <code>AddStudentCommand</code> to add a student to <code>Model</code>
 
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
+This is illustrated in the activity diagram below:
 
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
+<puml src="diagrams/AddStudentCommand.puml" width="600"/>
 
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
+* isValidPhone ensures that phone number is exactly 8 digits and begin with either 6, 8 or 9.
+* isValidEmail ensures that email has the @ domain.
+* isUniqueId ensures that <StudentId> is unique.
+* isValidParentName and isValidStudentName both ensure that they only contain alphanumeric characters
 
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
+If all the above conditions are satisfied, the student is added to the model.
 
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
+### Export Student Records
+Logic Classes:
+* <code>ExportCommand.java</code>
+* <code>ExportCommandParser.java</code>
 
-<puml src="diagrams/UndoRedoState0.puml" alt="UndoRedoState0" />
+<code>ExportCommandParser</code> parses the input entered by user before executing <code>ExportCommand</code> to export
+student name, parent name, student ID, parent email, parent phone number and attendance history of all students in <code>Model</cod>.
 
-Step 2. The user executes `delete 5` command to delete the 5th person in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
+This is illustrated in the activity diagram below:
 
-<puml src="diagrams/UndoRedoState1.puml" alt="UndoRedoState1" />
+<puml src="diagrams/ExportCommand.puml" width="600"/>
 
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
+* isValidFileName ensures that fileName only contains alphanumeric characters or underscore.
+* isValidFileLength ensures that fileName does not exceed 100 characters.
 
-<puml src="diagrams/UndoRedoState2.puml" alt="UndoRedoState2" />
+If all the above conditions are satisfied, export command will be successfully executed and a .csv file will be created in directory where carebook.jar file is placed.
 
-<box type="info" seamless>
+### Delete a Student 
+Logic Classes:
+* <code>DeleteStudentCommand.java</code>
+* <code>DeleteStudentCommandParser.java</code>
 
-**Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
+<code>DeleteStudentCommandParser</code> parses the input entered by user before executing <code>DeleteStudentCommand</code> to 
+delete a student from <code>Model</code>
 
-</box>
+<puml src="diagrams/DeleteStudentCommand.puml" width="600"/>
 
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
+* isValidId ensures that the studentId entered already exists in CareBook
 
-<puml src="diagrams/UndoRedoState3.puml" alt="UndoRedoState3" />
+If the above condition is satisfied, delete student command will be successfully executed.
 
+### Find a Student
+Logic classes:
+* <code>FindStudentCommand.java</code>
+* <code>FindStudentCommandParser.java</code>
 
-<box type="info" seamless>
+<puml src="diagrams/FindStudentCommand.puml" width="600"/>
 
-**Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
+* isValidId ensures that the studentId entered already exists in CareBook
 
-</box>
+If the above condition is satisfied, find student command will be successfully executed.
 
-The following sequence diagram shows how an undo operation goes through the `Logic` component:
-
-<puml src="diagrams/UndoSequenceDiagram-Logic.puml" alt="UndoSequenceDiagram-Logic" />
-
-<box type="info" seamless>
-
-**Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</box>
-
-Similarly, how an undo operation goes through the `Model` component is shown below:
-
-<puml src="diagrams/UndoSequenceDiagram-Model.puml" alt="UndoSequenceDiagram-Model" />
-
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<box type="info" seamless>
-
-**Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</box>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-<puml src="diagrams/UndoRedoState4.puml" alt="UndoRedoState4" />
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-<puml src="diagrams/UndoRedoState5.puml" alt="UndoRedoState5" />
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-<puml src="diagrams/CommitActivityDiagram.puml" width="250" />
-
-#### Design considerations:
-
-**Aspect: How undo & redo executes:**
-
-* **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
-
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
-
+<code>FindStudentCommandParser</code> parses the input entered by user before executing <code>FindStudentCommand</code> to
+find a student from <code>Model</code>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -283,7 +239,7 @@ _{Explain here how the data archiving feature will be implemented}_
 * Prefers typing to mouse interactions
 * Is reasonably comfortable using CLI apps
 
-**Value proposition**: CareBook helps daycare teachers manage classroom and parent communication by providing instant CLI access to students’, parents’, colleagues’ contacts and streamlining repetitive tasks like daily attendance and maintaining student records.
+**Value proposition**: CareBook helps daycare teachers manage classroom and parent communication by providing instant CLI access to students’ and parents' contacts and streamlining repetitive tasks like daily attendance and maintaining student records.
 
 ### User stories
 
@@ -295,9 +251,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | daycare teacher                      | view the students' and parents' contacts                                                   | disseminate information to them                           |
 | `* * *`  | daycare teacher                      | add student details to the system                                                          | keep records up to date as children enrol or leave        |
 | `* * *`  | daycare teacher                      | remove student details from the system                                                     | keep records up to date as children enrol or leave        |
-| `* * *`  | forgetful teacher                    | search for contacts by phone number                                                        | quickly identify who is calling/who to call               |
 | `* * *`  | daycare teacher                      | mark students as present                                                                   | efficiently take attendance during busy mornings          |
-| `* *`    | daycare teacher                      | quickly search for a child's emergency contact details                                     | immediately inform parents in case of emergencies         |
+| `* * *`  | daycare teacher                      | quickly search for a child's emergency contact details                                     | immediately inform parents in case of emergencies         |
+| `* *`    | forgetful teacher                    | search for contacts by phone number                                                        | quickly identify who is calling/who to call               |
 | `* *`    | daycare teacher                      | generate a summary of daily/monthly attendance                                             | track attendance accurately                               |
 | `* *`    | new user                             | copy-paste the parents' contacts from the app                                              | easily send an email to all parents                       |
 | `* *`    | forgetful user                       | filter the students in my class by subjects                                                | plan the class for the day better                         |
@@ -326,32 +282,32 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Use cases
 (For all use cases below, the **System** is the `CareBook` and the **Actor** is the `Daycare Teacher`, unless specified otherwise.)<br>
 
-#### Use case: UC1 - Add a New Student 
+#### Use case: UC1 - Add a New Student
 **MSS**
-1. User requests to add a student. 
-2. CareBook validates student details (student name, parent name, student ID, phone number, email address and address). 
-3. CareBook adds the new student. 
+1. User requests to add a student.
+2. CareBook validates student details (student name, parent name, student ID, phone number, email address and address).
+3. CareBook adds the new student.
 4. CareBook confirms successful addition.
-    
+
     Use case ends.
 
 **Extensions**
 * 2a. CareBook detects an invalid  student name, parent name, student ID, phone number, email address, or address.
     * 2a1. CareBook displays an error message.
-  
+
       Use case resumes from step 1.
 
 * 2b. CareBook detects a duplicate student ID.
     * 2b1. CareBook displays an error message.
-    
+
       Use case resumes from step 1.
 
 * 2c. CareBook detects an incorrect command format or unknown command.
   * 2c1. CareBook displays an error message.
-    
+
     Use case resumes from step 1.
 
-#### Use case: UC2 - Edit a Student 
+#### Use case: UC2 - Edit a Student
 **MSS**
 1. User requests to edit a student with new details by using student ID.
 2. CareBook verifies that the student exists.
@@ -372,7 +328,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case resumes at step 1.
 
-#### Use case: UC3 - Delete a Student 
+#### Use case: UC3 - Delete a Student
 
 **MSS**
 
@@ -521,11 +477,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to mark all students as absent by student ID.
+1. User requests to mark all students as absent.
 
 2. CareBook updates the attendance record for every student as absent.
 
 3. CareBook confirms that all students have been marked absent.
+
+   Use case ends.
+
+**Extensions**
 
 * 2a. CareBook detects an empty list of students.
 
@@ -540,6 +500,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User requests to export all students information with a filename.
 
 2. CareBook saves all students information into the directory where the CareBook application is located.
+
+   Use case ends.
+
+**Extensions**
 
 * 2a. CareBook detects an invalid filename.
     * 2a1. CareBook displays an error message.
@@ -564,8 +528,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 10. It should be a lightweight application (<100MB) and not require additional dependencies beyond Java.
 
 ### Glossary
-* **Command**: An instruction entered by the Daycare Teacher into the CareBook system to perform a specific action (e.g., "add", "remove", "view", "list", "mark", "help").
-* **Command Format**: The required structure and syntax for a command, including any necessary parameters (e.g., "add sn/StudentName pn/ParentName p/ParentPhoneNumber id/StudentID" for adding a student).
+* **Command**: An instruction entered by the Daycare Teacher into the CareBook system to perform a specific action (e.g., "add", "delete", "find", "list", "mark", "help").
+* **Command Format**: The required structure and syntax for a command, including any necessary parameters (e.g., "add <sn/StudentName> <id/StudentId> <pn/ParentName> <p/Phone> <e/Email> <a/Address>" for adding a student).
 * **Daycare Teacher**: The primary user of the CareBook application, responsible for managing student records and attendance.
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
 * **Private contact detail**: A contact detail that is not meant to be shared with others
@@ -587,97 +551,114 @@ testers are expected to do more *exploratory* testing.
 #### Launch and shutdown
 
 1. **Initial launch**
-   1. Download the `CareBook.jar` file and copy into an empty folder
-   2. Ensure you have `Java 17` or above installed in your computer. 
-   3. Open a command terminal, `cd` into the folder you placed your .jar file and type `java -jar CareBook.jar` and press enter to run CareBook application.<br>
+   1. Download the `CareBook.jar` file and copy into an empty folder<br><br>
+   1. Ensure you have `Java 17` or above installed in your computer.<br><br>
+   1. Open a command terminal, `cd` into the folder you placed your .jar file and type `java -jar CareBook.jar` and press enter to run CareBook application.<br>
       **Expected:** 
       * Shows the GUI with a set of sample students. 
-      * The window size may not be optimum.
+      * The window size may not be optimum.<br><br>
     
-2. **Saving window preferences**
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+1. **Saving window preferences**
+   1. Resize the window to an optimum size. Move the window to a different location. Close the window.<br><br>
    1. Re-launch the app by typing `java -jar CareBook.jar` and pressing enter.<br>
-      **Expected**: 
-      * The most recent window size and location is retained.
-    
-3. **Verifying Logs during launch**
-   1. Launch the app by typing `java -jar CareBook.jar` and pressing enter.
-   2. Observe the logs printed in the terminal during startup.<br>
-      **Expected**: 
+      **Expected**:
+      * The most recent window size and location is retained.<br><br>
+
+1. **Verifying Logs during launch**
+   1. Launch the app by typing `java -jar CareBook.jar` and pressing enter.<br><br>
+   1. Observe the logs printed in the terminal during startup.<br>
+      **Expected**:
       * Logs should be displayed with appropriate timestamps.
-      * Warnings about JavaFX configuration may appear but should not affect functionality. 
+      * Warnings about JavaFX configuration may appear but should not affect functionality.
 
 #### Deleting a student
 
 1. **Deleting a student while all students are being shown**
-   1. Prerequisites: List all students using the `list` command. Multiple students in the list.
+   1. Prerequisites: List all students using the `list` command. Multiple students in the list.<br><br>
    1. Test case: `delete A10A`<br>
       **Expected**: 
-      * Student with ID A10A is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+      * Student with ID A10A is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.<br><br>
+   1. Test case: `delete A99Z`<br>
+      **Expected:**
+      * No student is deleted. Error details shown in the status message. Status bar remains the same.<br><br>
+   1. Other incorrect delete commands to try: `delete`, `delete a10`, `...` (where student ID is invalid).<br>
+      **Expected:**
+      * Similar to previous.<br><br>
+
+1. **Deleting a Student When No Students Are Displayed**
+   1. Prerequisites: Clear the list using the `clear` command.<br><br>
    1. Test case: `delete A99Z`<br>
       **Expected:**
       * No student is deleted. Error details shown in the status message. Status bar remains the same.
-   1. Other incorrect delete commands to try: `delete`, `delete a10a`, `...` (where student ID is not capitalised)<br>
-      **Expected:**
-      * Similar to previous.
-
-2.  **Deleting a Student When No Students Are Displayed**
-    1. Prerequisites: Clear the list using the `clear` command.
-    2. Test case: `delete A99Z`<br>
-       **Expected:**
-       * No student is deleted. Error details shown in the status message. Status bar remains the same.
 
 
 #### Saving data
 
 1. **Dealing with missing data files**
-   1. Navigate to the application's `data` directory.
-   2. Delete or rename the data file (e.g., addressbook.json). 
-   3. Launch the app.
+   1. Navigate to the application's `data` directory.<br><br>
+   1. Delete or rename the data file (e.g., carebook.json). <br><br>
+   1. Launch the app.
       **Expected:**
        * The application should create a new default data file if one does not exist.
        * The list of students should contain default sample student data.
-       * A warning message (e.g., “Creating a new data file data\addressbook.json populated with a sample AddressBook.”) should be logged.
+       * A warning message (e.g., “Creating a new data file data\carebook.json populated with a sample CareBook.”) should be logged.<br><br>
    
-2. **Dealing with corrupted data files**
-    1. Navigate to the application's `data` directory and open `addressbook.json` in a text editor.
-    2. Modify the content to be invalid JSON (e.g., remove a closing brace or change a key name to an invalid format).
-    3. Save the file and launch the app.
-       **Expected:**
-        * The application should detect the corruption and handle it.
-        * A warning message (e.g., "WARNING: Error reading from jsonFile file data\addressbook.json: ...") should be logged.
-        * The app will launch with an empty student list.
-        * The application should not crash and should remain functional.
+1. **Dealing with corrupted data files**
+   1. Navigate to the application's `data` directory and open `carebook.json` in a text editor.<br><br>
+   1. Modify the content to be invalid JSON (e.g., remove a closing brace or change a key name to an invalid format).<br><br>
+   1. Save the file and launch the app.
+      **Expected:**
+       * The application should detect the corruption and handle it.
+       * A warning message (e.g., "WARNING: Error reading from jsonFile file data\carebook.json: ...") should be logged.
+       * The app will launch with an empty student list.
+       * The application should not crash and should remain functional.<br><br>
 
-3. **Ensuring data is saved after adding/deleting a student**
-    1. Launch the app and modify the data by adding/deleting a student.
-    2. Close the application and re-open it.
-       **Expected:**
-        * The added/deleted student should appear/not appear in the list.
+1. **Ensuring data is saved after adding/deleting a student**
+   1. Launch the app and modify the data by adding/deleting a student.<br><br>
+   1. Close the application and re-open it.
+      **Expected:**
+       * The added/deleted student should appear/not appear in the list.
 
 ## **Appendix: Effort**
 1. **Difficulty Level and Challenges Faced**
 
-   Our project builds on AddressBook Level 3 (AB3) but required significant refactoring to better fit our target users' needs. As a result, the complexity of data management, validation, and UI representation increased.<br>
+   Our project builds on AddressBook Level 3 (AB3) but required significant refactoring to better fit our target users' needs. As a result, the complexity of data management, validation, and UI representation increased.<br><br>
     **Key challenges included:**
     * Extensive refactoring: From `person` model to `student` model.
     * Editing and updating test cases: Ensuring existing test cases remained valid after structural changes while writing new ones for added functionalities.
-    * Maintaining code consistency: Ensuring that refactored components integrated smoothly without introducing regressions.
+    * Maintaining code consistency: Ensuring that refactored components integrated smoothly without introducing regressions.<br><br>
     
-2. **Effort Required**
+1. **Effort Required**
 
    The project effort was distributed across key areas:<br>
    * Feature Development (45%) – Modifying existing commands and implementing new commands (e.g. mark, markall, export).
    * Testing & Debugging (30%) – Updating test cases, refactoring test structure, and ensuring correctness after modifications.
-   * Data Management & Storage (25%) – Modifying JSON storage to handle new fields in `Student` model.
+   * Data Management & Storage (25%) – Modifying JSON storage to handle new fields in `Student` model.<br><br>
     
-3. **Achievements**
+1. **Achievements**
     * Successfully modified AB3 to align with our target users' needs while maintaining its core functionality.
     * Refactored the codebase effectively, improving maintainability and extensibility.
 
 ## **Appendix: Planned Enhancements**
-1. **Clearing attendance records**
+Team members (count): 5
 
-   Currently, attendance records accumulate over time, which can make it difficult for users to manage large amounts of data. We plan to introduce a bulk clearance feature that allows users to clear all the attendance records in CareBook.
+1. **Improve UI (Main Window and Find Window) for long names and addresses**: When dealing with long name and addresses, CareBook truncates these values in both the main and find window. 
+Furthermore, find window cannot be resized. To improve this in the future, we would make the UI display long name and address values and make find window 
+resizable.
 
-_{ more enhancement features to be added …​ }_
+2. **Modify edit command to detect changes**: When editing student contact, CareBook does not recognise that no changes are made and edit command is allowed
+to go through without throwing an error. For future improvements, we would make changes such that edit command will detect no changes are being made
+and throw an error.
+
+3. **Modify UI to display student name and studentId in sorted order**: When adding new students, student that has just been added
+will appear at the bottom of the UI display. This makes it hard for users to track their students. For future improvements,
+we would implement a comparator class to sort students by their student ID.
+
+4. **Modify export command to export student records to different file types and different directories**: When exporting student records,
+the exported file is automatically saved as a .csv file to the current directory of carebook.jar file. When user 
+tries to copy and paste records from .csv file to file types like excel, there is a slight formatting issue. For future improvements,
+we would implement a method to allow users to export to a different file type and directory of their choice.
+
+5. **Modify add command to allow names with special characters**: Currently, users can only add student and parent names that 
+consist of alphanumeric characters and space. For future improvements, we plan to allow users to add names with special characters like
+@, / or names in different languages (e.g. Arabic, Chinese).

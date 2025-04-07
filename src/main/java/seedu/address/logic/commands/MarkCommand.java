@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+import static seedu.address.logic.Messages.MESSAGE_STUDENT_ALREADY_MARKED;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ATTENDANCE_MARKED;
 import static seedu.address.logic.Messages.MESSAGE_STUDENT_ID_NOT_FOUND;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
@@ -42,6 +43,9 @@ public class MarkCommand extends Command {
 
         try {
             Student studentToMark = model.getStudentById(studentId);
+            if (studentToMark.getIsPresentToday()) {
+                throw new CommandException(String.format(MESSAGE_STUDENT_ALREADY_MARKED, studentId));
+            }
             studentToMark.setPresent();
         } catch (NoSuchElementException e) {
             throw new CommandException(String.format(MESSAGE_STUDENT_ID_NOT_FOUND, studentId));

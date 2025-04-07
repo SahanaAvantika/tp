@@ -34,7 +34,7 @@ By the end of this guide, you’ll be a **CareBook pro**, managing your daycare 
 ***
 ## Table of Contents
 1. Quick start
-   - [Installing CareBook](#installation)
+   - [Installing CareBook](#installing-carebook)
    - [Introducing GUI](#introducing-gui)
    - [CLI Tutorial](#cli-tutorial)
 1. Features
@@ -67,7 +67,7 @@ By the end of this guide, you’ll be a **CareBook pro**, managing your daycare 
    </markdown>
    </panel>
 
-2. Download your `carebook.jar` file with the latest release [here](https://github.com/AY2425S2-CS2103T-T11-2/tp/releases/tag/v1.4).
+2. Download your `carebook.jar` file with the latest release [here](https://github.com/AY2425S2-CS2103T-T11-2/tp/releases/tag/v1.6).
 Scroll down all the way until you see **Assets** and click on `carebook.jar` to install.
 
 3. Move the `.jar` file to the folder you want to use as the home folder for your CareBook.
@@ -114,11 +114,18 @@ For more details, see the [features section](#features).
 ## Features
 
 <div style="background-color: #f8d7da; padding: 10px; border-radius: 5px; border-left: 5px solid #dc3545; margin-bottom: 20px;">
-  ❗<strong>Warning:</strong> Please be careful when copying commands from a PDF version of this user guide. 
-If a command is split across lines, spaces could be lost, which might cause errors when you paste 
+  ❗<strong>Warning:</strong> Please be careful when copying commands from a PDF version of this user guide.
+If a command is split across lines, spaces could be lost, which might cause errors when you paste
 it into the application.
 </div>
 
+<div style="background-color: #f8d7da; padding: 10px; border-radius: 5px; border-left: 5px solid #dc3545; margin-bottom: 20px;">
+  ❗<strong>Warning:</strong> Only edit the saved data file, carebook.json, if you are very sure what you are doing is correct and it will not cause errors (due to invalid names, dates, email id etc). Any error detected when reading data from the file will imply that the file has been corrupted, all of its contents will be overwritten <strong>PERMANENTLY</strong>. You will NOT be able to recover lost data if your saved file is corrupted.
+</div>
+
+<div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
+  ℹ   <strong> Information:</strong> <code>StudentId</code> used in all features is case-insensitive (e.g. "a10a" will match "A10A"). Both <code>Phone</code> and <code>Email</code> refer to the parent's.
+</div>
 
 #### Adding a student
 You can add a student to CareBook.
@@ -131,11 +138,12 @@ You can add a student to CareBook.
   <strong>Remarks:</strong>
   <ul>
     <li>Parameters can be added in <em>any order</em>, but all are compulsory.</li>
-    <li>For names instead of "S/O" and "D/O" please use SO or DO.</li>
+    <li>For <code>StudentName</code> and <code>ParentName</code>, instead of "S/O" and "D/O" please use SO or DO.</li>
     <li>No restrictions to Address.</li>
-    <li>Student ID should be <strong>4 characters</strong> beginning with A followed by 2 digits and ending with an alphabet.</li>
-    <li>Phone number <strong>must</strong> range from 80000000 to 99999999.</li>
-    <li>Email address should have an @ domain.</li>
+    <li><code>StudentId</code> must be <strong>unique</strong></li>
+    <li><code>StudentId</code> should be <strong>4 characters</strong> beginning with A followed by 2 digits and ending with an alphabet.</li>
+    <li><code>Phone</code> is restricted to Singapore numbers so they <strong>must</strong> be exactly 8 digits and begin with 6, 8 or 9.</li>
+    <li><code>Email</code> should have an @ domain.</li>
   </ul>
 </div>
 
@@ -224,11 +232,12 @@ You can edit a student's details in CareBook.
   <ul>
     <li>There are no restrictions to Address.</li>
     <li>Parameters can be edited in <em>any order</em>.</li>
-    <li>For names instead of "S/O" and "D/O" please use SO or DO.</li>
-    <li>Student ID should be <strong>4 characters</strong> beginning with A followed by 2 digits and ending with an alphabet.</li>
-    <li>Edited Student ID should be a new Student ID that has not been assigned to any students.</li>
-    <li>Phone number should be from 80000000 to 99999999.</li>
-    <li>Email address should have an @ domain.</li>
+    <li>For <code>StudentName</code> and <code>ParentName</code>, instead of "S/O" and "D/O" please use SO or DO.</li>
+<li><code>StudentId</code> must be <strong>unique</strong></li>
+   <li><code>StudentId</code> should be <strong>4 characters</strong> beginning with A followed by 2 digits and ending with an alphabet.</li>
+    <li>Edited <code>StudentId</code> should be a new <code>StudentId</code> that has not been assigned to any students.</li>
+    <li><code>Phone</code> is restricted to Singapore numbers so they <strong>must</strong> be exactly 8 digits and begin with 6, 8 or 9.</li>
+    <li><code>Email</code> should have an @ domain.</li>
     <li><strong>At least one field</strong> is required in addition to providing the student ID of the student you want to edit.</li>
   </ul>
 </div>
@@ -268,12 +277,21 @@ You can exit the program.
 <p>&nbsp;</p>
 
 #### Exporting attendance summary
-You can export an attendance summary.  
+You can export an attendance summary.
+
+<div style="background-color: #f8d7da; padding: 10px; border-radius: 5px; border-left: 5px solid #dc3545; margin-bottom: 20px;">
+  ❗<strong>Warning:</strong> Student records are meant to be exported to a .csv file and viewed in that format. If you copy and paste records in that exported .csv file to other file types like Excel,
+there may be a slight formatting issue.
+</div>
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
-  💡 <strong>Tip:</strong> The exported file will be automatically saved in .csv format, with a timestamp next 
-        to the file name to help identify when it was created. It includes student ID, student name, parent name, 
+  <strong>ℹ  Information: </strong> The exported file will be automatically saved in .csv format, with a timestamp next
+        to the file name to help identify when it was created. It includes student ID, student name, parent name,
 parent's email, parent's phone number, and students' attendance history from CareBook.
+</div>
+
+<div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
+  💡 <strong>Tip:</strong> You can copy the parent's email address from the exported .csv file and paste it directly into the "To" field when composing an email in Outlook
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
@@ -284,7 +302,8 @@ parent's email, parent's phone number, and students' attendance history from Car
   <strong>Remarks:</strong>
   <ul>
     <li>File name should only consist of alphanumeric characters and underscores.</li>
-    <li>Special characters including but not limited to * . / ‘ are invalid.</li>
+    <li>Special characters including but not limited to * . / ‘ are <strong>invalid</strong>.</li>
+     <li><code>FileName</code> should not exceed <strong>100 characters</strong>.</li>
   </ul>
 </div>
 
@@ -309,8 +328,12 @@ parent's email, parent's phone number, and students' attendance history from Car
 You can find a specific student with matching Student ID.
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
-  💡 <strong>Tip:</strong> A find window will open upon executing this command. Full contact information (from top to bottom order:
+    <strong>ℹ  Information:</strong> A find window will open upon executing this command. Full contact information (from top to bottom order:
 student name, student ID, parent name, parent's phone number, address, parent's email) of the student with a matching ID will be shown.
+</div>
+
+<div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
+  💡 <strong>Tip:</strong> You <strong>must</strong> close the find window by either pressing ESC or cross button before you can execute any commands in the main window
 </div>
 
 <div style="padding: 10px; border-radius: 5px; border-left: 5px solid #6c757d; margin-bottom: 20px;">
@@ -503,9 +526,8 @@ You can mark all students in CareBook as absent.
 
 ## Known Issues
 
-1. **Find window** cannot be maximized fully. However, since it only displays 1 student, you will still be able to view all details needed.
-1. If you **execute another command with the find window open**, you will get a notification. Simply click "ok" to close it.
-1. When **help window is minimized** and you run `help` again, the original window remains minimized. Simply restore the minimized window to view it again.
+1. **Find window** cannot be resized. However, since it only displays 1 student, you will still be able to view all details needed.
+2. When **help window is minimized** and you run `help` again, the original window remains minimized. Simply restore the minimized window to view it again.
 ***
 
 ## FAQ
@@ -513,14 +535,14 @@ You can mark all students in CareBook as absent.
 **Q:** Is CareBook and Java 17 free to download? <br>
 **A:** Yes, they are both free to download!
 
-**Q:** Do I need an internet connection to use CareBook? <br> 
+**Q:** Do I need an internet connection to use CareBook? <br>
 **A:** No, CareBook works **fully offline**. All data is stored locally on your device.
 
 **Q:** Is my data automatically saved? <br>
 **A:** Yes, CareBook **automatically saves** all changes after each command. No need to manually save!
 
 **Q:** How do I start using this application if I am a novice user? <br>
-**A:** Execute `help` command to check the commands available. For more information about the command usage 
+**A:** Execute `help` command to check the commands available. For more information about the command usage
 of each command, see the [features section](#features).
 
 **Q:** Is there a way to recover deleted or cleared student records? <br>
