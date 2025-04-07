@@ -285,7 +285,7 @@ there may be a slight formatting issue.
 </div>
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
-  <strong>ℹ  Information </strong> The exported file will be automatically saved in .csv format, with a timestamp next
+  <strong>ℹ  Information: </strong> The exported file will be automatically saved in .csv format, with a timestamp next
         to the file name to help identify when it was created. It includes student ID, student name, parent name,
 parent's email, parent's phone number, and students' attendance history from CareBook.
 </div>

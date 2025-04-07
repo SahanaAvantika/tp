@@ -38,7 +38,7 @@ Given below is a quick overview of main components and how they interact with ea
 
 **Main components of the architecture**
 
-**`Main`** (consisting of classes [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
+**`Main`** (consisting of classes [`Main`](hhttps://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
 * At app launch, it initializes the other components in the correct sequence, and connects them up with each other.
 * At shut down, it shuts down the other components and invokes cleanup methods where necessary.
 
@@ -76,7 +76,7 @@ The **API** of this component is specified in [`Ui.java`](https://github.com/AY2
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `StudentListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/resources/view/MainWindow.fxml)
 
 The `UI` component,
 
@@ -116,7 +116,7 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 
 How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
-* All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+* All `XYZCommandParser` classes (e.g., `AddStudentCommandParser`, `DeleteStudentCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### Model component
 **API** : [`Model.java`](https://github.com/AY2425S2-CS2103T-T11-2/tp/blob/master/src/main/java/seedu/address/model/Model.java)
@@ -130,15 +130,6 @@ The `Model` component,
 * stores the currently 'selected' `Student` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Student>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
-
-<box type="info" seamless>
-
-**Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
-
-<puml src="diagrams/BetterModelClassDiagram.puml" width="450" />
-
-</box>
-
 
 ### Storage component
 
@@ -161,12 +152,12 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### Add Student
+### Add a Student
 Logic Classes:
 * <code>AddStudentCommand.java</code>
 * <code>AddStudentCommandParser.java</code>
 
-<code>AddStudentCommand</code> is a command in CareBook to add students.
+<code>AddStudentCommandParser</code> parses the input entered by user before executing <code>AddStudentCommand</code> to add a student to <code>Model</code>
 
 This is illustrated in the activity diagram below:
 
@@ -184,8 +175,8 @@ Logic Classes:
 * <code>ExportCommand.java</code>
 * <code>ExportCommandParser.java</code>
 
-<code>ExportCommand</code> is a command in CareBook to export the student name, parent name, student ID, parent email, parent phone number
-and attendance history of students.
+<code>ExportCommandParser</code> parses the input entered by user before executing <code>ExportCommand</code> to export
+student name, parent name, student ID, parent email, parent phone number and attendance history of all students in <code>Model</cod>.
 
 This is illustrated in the activity diagram below:
 
@@ -195,6 +186,34 @@ This is illustrated in the activity diagram below:
 * isValidFileLength ensures that fileName does not exceed 100 characters.
 
 If all the above conditions are satisfied, export command will be successfully executed and a .csv file will be created in directory where carebook.jar file is placed.
+
+### Delete a Student 
+Logic Classes:
+* <code>DeleteStudentCommand.java</code>
+* <code>DeleteStudentCommandParser.java</code>
+
+<code>DeleteStudentCommandParser</code> parses the input entered by user before executing <code>DeleteStudentCommand</code> to 
+delete a student from <code>Model</code>
+
+<puml src="diagrams/DeleteStudentCommand.puml" width="600"/>
+
+* isValidId ensures that the studentId entered already exists in CareBook
+
+If the above condition is satisfied, delete student command will be successfully executed.
+
+### Find a Student
+Logic classes:
+* <code>FindStudentCommand.java</code>
+* <code>FindStudentCommandParser.java</code>
+
+<puml src="diagrams/FindStudentCommand.puml" width="600"/>
+
+* isValidId ensures that the studentId entered already exists in CareBook
+
+If the above condition is satisfied, find student command will be successfully executed.
+
+<code>FindStudentCommandParser</code> parses the input entered by user before executing <code>FindStudentCommand</code> to
+find a student from <code>Model</code>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -232,9 +251,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | daycare teacher                      | view the students' and parents' contacts                                                   | disseminate information to them                           |
 | `* * *`  | daycare teacher                      | add student details to the system                                                          | keep records up to date as children enrol or leave        |
 | `* * *`  | daycare teacher                      | remove student details from the system                                                     | keep records up to date as children enrol or leave        |
-| `* * *`  | forgetful teacher                    | search for contacts by phone number                                                        | quickly identify who is calling/who to call               |
 | `* * *`  | daycare teacher                      | mark students as present                                                                   | efficiently take attendance during busy mornings          |
-| `* *`    | daycare teacher                      | quickly search for a child's emergency contact details                                     | immediately inform parents in case of emergencies         |
+| `* * *`  | daycare teacher                      | quickly search for a child's emergency contact details                                     | immediately inform parents in case of emergencies         |
+| `* *`    | forgetful teacher                    | search for contacts by phone number                                                        | quickly identify who is calling/who to call               |
 | `* *`    | daycare teacher                      | generate a summary of daily/monthly attendance                                             | track attendance accurately                               |
 | `* *`    | new user                             | copy-paste the parents' contacts from the app                                              | easily send an email to all parents                       |
 | `* *`    | forgetful user                       | filter the students in my class by subjects                                                | plan the class for the day better                         |
@@ -623,13 +642,23 @@ testers are expected to do more *exploratory* testing.
 ## **Appendix: Planned Enhancements**
 Team members (count): 5
 
-1. **Improve UI for long names and addresses**: When dealing with long name and addresses, CareBook truncates these values in both the main and find window. 
-To improve this in the future, we would make the UI display long name and address values.
+1. **Improve UI (Main Window and Find Window) for long names and addresses**: When dealing with long name and addresses, CareBook truncates these values in both the main and find window. 
+Furthermore, find window cannot be resized. To improve this in the future, we would make the UI display long name and address values and make find window 
+resizable.
 
-2. **Modify edit command to detect changes**: When editing student contact, CareBook does not recognise that no changes and made and edit command is allowed
+2. **Modify edit command to detect changes**: When editing student contact, CareBook does not recognise that no changes are made and edit command is allowed
 to go through without throwing an error. For future improvements, we would make changes such that edit command will detect no changes are being made
 and throw an error.
 
 3. **Modify UI to display student name and studentId in sorted order**: When adding new students, student that has just been added
 will appear at the bottom of the UI display. This makes it hard for users to track their students. For future improvements,
 we would implement a comparator class to sort students by their student ID.
+
+4. **Modify export command to export student records to different file types and different directories**: When exporting student records,
+the exported file is automatically saved as a .csv file to the current directory of carebook.jar file. When user 
+tries to copy and paste records from .csv file to file types like excel, there is a slight formatting issue. For future improvements,
+we would implement a method to allow users to export to a different file type and directory of their choice.
+
+5. **Modify add command to allow names with special characters**: Currently, users can only add student and parent names that 
+consist of alphanumeric characters and space. For future improvements, we plan to allow users to add names with special characters like
+@, / or names in different languages (e.g. Arabic, Chinese).
