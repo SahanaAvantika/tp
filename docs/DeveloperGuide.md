@@ -289,7 +289,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3. CareBook adds the new student.
 4. CareBook confirms successful addition.
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 * 2a. CareBook detects an invalid  student name, parent name, student ID, phone number, email address, or address.
@@ -303,9 +303,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
       Use case resumes from step 1.
 
 * 2c. CareBook detects an incorrect command format or unknown command.
-  * 2c1. CareBook displays an error message.
+    * 2c1. CareBook displays an error message.
 
-    Use case resumes from step 1.
+      Use case resumes from step 1.
 
 #### Use case: UC2 - Edit a Student
 **MSS**
@@ -400,11 +400,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3. CareBook updates the attendance record for that student.
 4. CareBook confirms that the student has been marked present.
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 
-* 2a. CareBook detects an invalid student ID or is unable to find student ID.
+* 2a. CareBook detects an invalid student ID, is unable to find student ID, or finds that the student is already marked as present.
     * 2a1. CareBook displays an error message.
 
       Use case resumes at step 1.
@@ -427,7 +427,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 
-* 2a. CareBook detects an invalid student ID or is unable to find student ID.
+* 2a. CareBook detects an invalid student ID, is unable to find student ID, or finds the that student is already marked as absent.
     * 2a1. CareBook displays an error message.
 
       Use case resumes at step 1.
@@ -514,6 +514,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2b1. CareBook displays an error message.
 
       Use case resumes at step 1.
+
 
 ### Non-Functional Requirements
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
@@ -666,3 +667,6 @@ consist of alphanumeric characters and space. For future improvements, we plan t
 6. **Modify add command to validate that email contains a period**: Currently, users can enter emails that do not contain 
 a period in the domain (e.g. a@bc). For future improvements, we plan to enhance email validation by ensuring that the 
 domain part of the email contains at least one period (e.g. example.com) to better reflect real-world email formats.
+6. **Automatically refresh attendance records on a new date**: Currently, users need to trigger a refresh to update the attendance records on a new date.
+When a user is working on this app at late night, past 12am, the date will change, hence they will have to manually refresh the data using commands like `list`.
+For further improvement, we plan to automatically detect a date change while the app is running, and refresh the attendance records without user-triggered actions.
