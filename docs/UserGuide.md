@@ -120,7 +120,7 @@ it into the application.
 </div>
 
 <div style="background-color: #f8d7da; padding: 10px; border-radius: 5px; border-left: 5px solid #dc3545; margin-bottom: 20px;">
-  ❗<strong>Warning:</strong> Only edit the saved data file, carebook.json, if you are very sure what you are doing is correct and it will not cause errors (due to invalid names, dates, email id etc). Any error detected when reading data from the file will imply that the file has been corrupted, all of its contents will be overwritten <strong>PERMANENTLY</strong>. You will NOT be able to recover lost data if your saved file is corrupted.
+  ❗<strong>Warning:</strong> Only edit the saved data file, carebook.json, if you are very sure what you are doing is correct and it will not cause errors (due to invalid names, dates, email id etc). Any error detected when reading data from the file will imply that the file has been corrupted, and all of its contents will be overwritten <strong>PERMANENTLY</strong>. You will NOT be able to recover lost data if your saved file is corrupted.
 </div>
 
 <div style="background-color: #e7f3ff; padding: 10px; border-radius: 5px; border-left: 5px solid #5b9bd5; margin-bottom: 20px;">
