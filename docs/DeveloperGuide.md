@@ -292,18 +292,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     Use case ends.
 
 **Extensions**
-2a. CareBook detects an invalid  student name, parent name, student ID, phone number, email address, or address.
-    2a1. CareBook displays an error message.
+    2a. CareBook detects an invalid  student name, parent name, student ID, phone number, email address, or address.
+        2a1. CareBook displays an error message.
 
     Use case resumes from step 1.
 
-2b. CareBook detects a duplicate student ID.
-    2b1. CareBook displays an error message.
+    2b. CareBook detects a duplicate student ID.
+        2b1. CareBook displays an error message.
 
     Use case resumes from step 1.
 
-2c. CareBook detects an incorrect command format or unknown command.
-    2c1. CareBook displays an error message.
+    2c. CareBook detects an incorrect command format or unknown command.
+        2c1. CareBook displays an error message.
 
     Use case resumes from step 1.
 
