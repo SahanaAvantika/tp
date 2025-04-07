@@ -454,6 +454,7 @@ You can mark all students in CareBook as present.
   <strong>Remarks:</strong>
   <ul>
     <li>The command only works if there is at least one recorded student in CareBook.</li>
+    <li>Running the command when all students are already marked will still return a success message. This is expected behaviour and not an error.</li>
   </ul>
 </div>
 
@@ -510,6 +511,7 @@ You can mark all students in CareBook as absent.
   <strong>Remarks:</strong>
   <ul>
     <li>The command only works if there is at least one recorded student in CareBook.</li>
+    <li>Running the command when all students are already unmarked will still return a success message. This is expected behaviour and not an error.</li>
   </ul>
 </div>
 
